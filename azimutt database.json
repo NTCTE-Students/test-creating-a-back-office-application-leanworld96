@@ -1,0 +1,386 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "name": "New Project",
+  "sources": [
+    {
+      "id": "61bb6fa6-6919-4076-b046-9e89e1b74a46",
+      "name": "default",
+      "kind": {
+        "kind": "AmlEditor"
+      },
+      "content": [
+        "Users",
+        "  id int ",
+        "  user_name varchar(255)",
+        "  password varchar(255)",
+        "  access int",
+        "",
+        "Clients",
+        "  id int",
+        "  name varchar(255)",
+        "  phone varchar(255)",
+        "  mail varchar(255)",
+        "  date_comumunication datetime",
+        "",
+        "Order",
+        "  id int",
+        "  client_id int",
+        "  date datetime",
+        "  status varchar(255)",
+        "  price decimal",
+        "",
+        "Inventory",
+        "  id int",
+        "  name varchar(255)",
+        "  description text",
+        "  quantity_avaliable int",
+        "  price decimal ",
+        "",
+        "Finance",
+        "  id int",
+        "  type_operation varchar(255)",
+        "  amount decimal",
+        "  date_operation datetime",
+        "  user_id int",
+        "",
+        "Mail",
+        "  id int",
+        "  sender varchar(255)",
+        "  receiver varchar(255)",
+        "  theme varchar(255)",
+        "  message text",
+        "fk Users.id -> Order.id",
+        "fk Clients.id -> Order.client_id",
+        "fk Inventory.id -> Order.id",
+        "fk Finance.user_id -> Users.id",
+        ""
+      ],
+      "tables": [
+        {
+          "schema": "",
+          "table": "Clients",
+          "columns": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "name",
+              "type": "varchar(255)"
+            },
+            {
+              "name": "phone",
+              "type": "varchar(255)"
+            },
+            {
+              "name": "mail",
+              "type": "varchar(255)"
+            },
+            {
+              "name": "date_comumunication",
+              "type": "datetime"
+            }
+          ]
+        },
+        {
+          "schema": "",
+          "table": "Finance",
+          "columns": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "type_operation",
+              "type": "varchar(255)"
+            },
+            {
+              "name": "amount",
+              "type": "decimal"
+            },
+            {
+              "name": "date_operation",
+              "type": "datetime"
+            },
+            {
+              "name": "user_id",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "schema": "",
+          "table": "Inventory",
+          "columns": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "name",
+              "type": "varchar(255)"
+            },
+            {
+              "name": "description",
+              "type": "text"
+            },
+            {
+              "name": "quantity_avaliable",
+              "type": "int"
+            },
+            {
+              "name": "price",
+              "type": "decimal"
+            }
+          ]
+        },
+        {
+          "schema": "",
+          "table": "Mail",
+          "columns": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "sender",
+              "type": "varchar(255)"
+            },
+            {
+              "name": "receiver",
+              "type": "varchar(255)"
+            },
+            {
+              "name": "theme",
+              "type": "varchar(255)"
+            },
+            {
+              "name": "message",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "schema": "",
+          "table": "Order",
+          "columns": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "client_id",
+              "type": "int"
+            },
+            {
+              "name": "date",
+              "type": "datetime"
+            },
+            {
+              "name": "status",
+              "type": "varchar(255)"
+            },
+            {
+              "name": "price",
+              "type": "decimal"
+            }
+          ]
+        },
+        {
+          "schema": "",
+          "table": "Users",
+          "columns": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "user_name",
+              "type": "varchar(255)"
+            },
+            {
+              "name": "password",
+              "type": "varchar(255)"
+            },
+            {
+              "name": "access",
+              "type": "int"
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "name": "Users_id_fk_az",
+          "src": {
+            "table": ".Users",
+            "column": "id"
+          },
+          "ref": {
+            "table": ".Order",
+            "column": "id"
+          }
+        },
+        {
+          "name": "Clients_id_fk_az",
+          "src": {
+            "table": ".Clients",
+            "column": "id"
+          },
+          "ref": {
+            "table": ".Order",
+            "column": "client_id"
+          }
+        },
+        {
+          "name": "Inventory_id_fk_az",
+          "src": {
+            "table": ".Inventory",
+            "column": "id"
+          },
+          "ref": {
+            "table": ".Order",
+            "column": "id"
+          }
+        },
+        {
+          "name": "Finance_user_id_fk_az",
+          "src": {
+            "table": ".Finance",
+            "column": "user_id"
+          },
+          "ref": {
+            "table": ".Users",
+            "column": "id"
+          }
+        }
+      ],
+      "createdAt": 1717386913775,
+      "updatedAt": 1717392019809
+    }
+  ],
+  "layouts": {
+    "initial layout": {
+      "tables": [
+        {
+          "id": ".Inventory",
+          "position": {
+            "left": 740,
+            "top": 310
+          },
+          "size": {
+            "width": 199.25,
+            "height": 165
+          },
+          "color": "blue",
+          "columns": [
+            "id",
+            "name",
+            "description",
+            "quantity_avaliable",
+            "price"
+          ]
+        },
+        {
+          "id": ".Mail",
+          "position": {
+            "left": 240,
+            "top": 310
+          },
+          "size": {
+            "width": 141.75,
+            "height": 165
+          },
+          "color": "cyan",
+          "columns": [
+            "id",
+            "sender",
+            "receiver",
+            "theme",
+            "message"
+          ]
+        },
+        {
+          "id": ".Finance",
+          "position": {
+            "left": 1020,
+            "top": 150
+          },
+          "size": {
+            "width": 209.76666259765625,
+            "height": 165
+          },
+          "color": "amber",
+          "columns": [
+            "id",
+            "type_operation",
+            "amount",
+            "date_operation",
+            "user_id"
+          ]
+        },
+        {
+          "id": ".Order",
+          "position": {
+            "left": 730,
+            "top": 70
+          },
+          "size": {
+            "width": 130.46665954589844,
+            "height": 165
+          },
+          "color": "emerald",
+          "columns": [
+            "id",
+            "client_id",
+            "date",
+            "status",
+            "price"
+          ]
+        },
+        {
+          "id": ".Clients",
+          "position": {
+            "left": 410,
+            "top": 170
+          },
+          "size": {
+            "width": 259.0555487738715,
+            "height": 165
+          },
+          "color": "teal",
+          "columns": [
+            "id",
+            "name",
+            "phone",
+            "mail",
+            "date_comumunication"
+          ]
+        },
+        {
+          "id": ".Users",
+          "position": {
+            "left": 200,
+            "top": 40
+          },
+          "size": {
+            "width": 157.77777777777777,
+            "height": 140.99999321831598
+          },
+          "color": "green",
+          "columns": [
+            "id",
+            "user_name",
+            "password",
+            "access"
+          ]
+        }
+      ],
+      "createdAt": 1717386913775,
+      "updatedAt": 1717392089810
+    }
+  },
+  "createdAt": 1717386917657,
+  "updatedAt": 1717386917657,
+  "version": 2
+}
